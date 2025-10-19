@@ -5,16 +5,16 @@ import os
 
 def load_model_auto(model_path=None):
     """
-    Load the model from 'model-reg-xxx.pkl'.
-    If model_path is not provided, automatically load the latest model-reg-*.pkl.
+    Load the model from 'model-reg-67130701912.pkl'.
+    If model_path is not provided, automatically load the latest model-reg-67130701912.pkl.
     """
     if model_path and os.path.exists(model_path):
         print(f"Loading model from {model_path}")
         return joblib.load(model_path)
     else:
-        files = glob.glob("model-reg-*.pkl")
+        files = glob.glob("model-reg-67130701912.pkl")
         if not files:
-            raise FileNotFoundError("No model-reg-xxx.pkl file found in current directory.")
+            raise FileNotFoundError("No model-reg-67130701912.pkl file found in current directory.")
         latest = max(files, key=os.path.getmtime)
         print(f"Auto-loaded latest model: {latest}")
         return joblib.load(latest)
